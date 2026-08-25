@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTrack | Student Management</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">E</div>
+      <div>
+        <h2>EduTrack</h2>
+        <span>Student Portal</span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="index.html" class="nav-link active">
+        <span>⌂</span> Dashboard
+      </a>
+
+      <a href="students.html" class="nav-link">
+        <span>👨‍🎓</span> Students
+      </a>
+
+      <a href="reports.html" class="nav-link reports-link">
+        <span>📊</span> Reports
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="admin-card">
+        <div class="avatar">AD</div>
+        <div>
+          <strong>Admin</strong>
+          <small>Administrator</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+  <main class="main">
+
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back, Admin 👋</p>
+      </div>
+
+      <div class="top-actions">
+        <div class="notification">🔔</div>
+        <div class="profile-avatar">AD</div>
+      </div>
+    </header>
+
+
+    <section class="hero">
+      <div>
+        <span class="hero-tag">ACADEMIC OVERVIEW</span>
+        <h2>Manage your students<br>with ease.</h2>
+        <p>Track students, attendance, performance and academic progress from one place.</p>
+
+        <a href="students.html" class="primary-btn">
+          View Students →
+        </a>
+      </div>
+
+      <div class="hero-illustration">
+        <div class="circle"></div>
+        <div class="student-icon">🎓</div>
+      </div>
+    </section>
+
+
+    <section class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon blue">👨‍🎓</div>
+        <div>
+          <span>Total Students</span>
+          <h2 id="totalStudents">0</h2>
+          <small class="positive">↑ 12% this month</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon green">📚</div>
+        <div>
+          <span>Departments</span>
+          <h2 id="totalDepartments">0</h2>
+          <small>Active departments</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon orange">📈</div>
+        <div>
+          <span>Average Score</span>
+          <h2 id="averageScore" class="clickable-stat" onclick="showWrongAverageAlert()">0%</h2>
+          <small class="positive">↑ 4.8% improvement</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon purple">✓</div>
+        <div>
+          <span>Avg. Attendance</span>
+          <h2 id="averageAttendance">0%</h2>
+          <small>Overall attendance</small>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="content-grid">
+
+      <div class="panel recent-panel">
+
+        <div class="panel-header">
+          <div>
+            <h3>Recent Students</h3>
+            <p>Recently added students</p>
+          </div>
+
+          <a href="students.html" class="view-link">View all →</a>
+        </div>
+
+        <div id="recentStudents" class="recent-list"></div>
+
+      </div>
+
+
+      <div class="panel department-panel">
+
+        <div class="panel-header">
+          <div>
+            <h3>Departments</h3>
+            <p>Student distribution</p>
+          </div>
+        </div>
+
+        <div id="departmentStats"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

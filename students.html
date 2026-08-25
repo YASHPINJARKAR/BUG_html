@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTrack | Students</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-icon">E</div>
+      <div>
+        <h2>EduTrack</h2>
+        <span>Student Portal</span>
+      </div>
+    </div>
+
+    <nav>
+
+      <a href="index.html" class="nav-link">
+        <span>⌂</span> Dashboard
+      </a>
+
+      <a href="students.html" class="nav-link active">
+        <span>👨‍🎓</span> Students
+      </a>
+
+      <a href="reports.html" class="nav-link reports-link">
+        <span>📊</span> Reports
+      </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="admin-card">
+        <div class="avatar">AD</div>
+        <div>
+          <strong>Admin</strong>
+          <small>Administrator</small>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+
+  <main class="main">
+
+    <header class="topbar">
+
+      <div>
+        <h1>Students</h1>
+        <p>Manage and monitor student information.</p>
+      </div>
+
+      <button class="primary-btn" onclick="openModal()">
+        + Add Student
+      </button>
+
+    </header>
+
+
+    <section class="page-card">
+
+      <div class="toolbar">
+
+        <div class="search-box">
+          <span>🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search students..."
+            oninput="renderStudents()"
+          >
+        </div>
+
+        <select id="departmentFilter" onchange="renderStudents()">
+          <option value="all">All Departments</option>
+          <option value="AI & DS">AI & DS</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Mechanical">Mechanical</option>
+        </select>
+
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Roll No.</th>
+              <th>Department</th>
+              <th>Year</th>
+              <th>Score</th>
+              <th>Attendance</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="studentTable"></tbody>
+
+        </table>
+
+      </div>
+
+      <div id="emptyState" class="empty-state hidden">
+        <div>🔎</div>
+        <h3>No students found</h3>
+        <p>Try changing your search or filter.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- ADD STUDENT MODAL -->
+
+<div id="studentModal" class="modal">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <div>
+        <h2>Add New Student</h2>
+        <p>Enter student information below.</p>
+      </div>
+
+      <button class="close-btn" onclick="closeModal()">×</button>
+    </div>
+
+
+    <form id="studentForm">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input id="studentName" type="text" placeholder="Enter full name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Roll Number</label>
+          <input id="rollNumber" type="text" placeholder="e.g. CS101" required>
+        </div>
+
+        <div class="form-group">
+          <label>Department</label>
+
+          <select id="studentDepartment" required>
+            <option value="">Select department</option>
+            <option>AI & DS</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Electronics</option>
+            <option>Mechanical</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Year</label>
+
+          <select id="studentYear" required>
+            <option value="">Select year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Score (%)</label>
+          <input id="studentScore" type="number" min="0" max="100" placeholder="85" required>
+        </div>
+
+        <div class="form-group">
+          <label>Attendance (%)</label>
+          <input id="studentAttendance" type="number" min="0" max="100" placeholder="90" required>
+        </div>
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button type="button" class="secondary-btn" onclick="closeModal()">
+          Cancel
+        </button>
+
+        <button type="submit" class="primary-btn">
+          Add Student
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ADD/EDIT MARKS MODAL -->
+<div id="marksModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <h2>Enter Student Marks</h2>
+        <p>Enter individual subject marks out of 100.</p>
+      </div>
+      <button class="close-btn" type="button" onclick="closeMarksModal()">×</button>
+    </div>
+
+    <form id="marksForm">
+      <input type="hidden" id="marksStudentId">
+      
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Mathematics Marks</label>
+          <input id="mathsMarks" type="number" min="0" max="100" placeholder="e.g. 85" required>
+        </div>
+
+        <div class="form-group">
+          <label>Science Marks</label>
+          <input id="scienceMarks" type="number" min="0" max="100" placeholder="e.g. 90" required>
+        </div>
+
+        <div class="form-group">
+          <label>English Marks</label>
+          <input id="englishMarks" type="number" min="0" max="100" placeholder="e.g. 80" required>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" onclick="closeMarksModal()">
+          Cancel
+        </button>
+        <button type="submit" class="primary-btn">
+          Save & Calculate
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

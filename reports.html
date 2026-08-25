@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EduTrack | Reports</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+  <aside class="sidebar">
+
+    <div class="brand">
+
+      <div class="brand-icon">E</div>
+
+      <div>
+        <h2>EduTrack</h2>
+        <span>Student Portal</span>
+      </div>
+
+    </div>
+
+
+    <nav>
+
+      <a href="index.html" class="nav-link">
+        <span>⌂</span>
+        Dashboard
+      </a>
+
+      <a href="students.html" class="nav-link">
+        <span>👨‍🎓</span>
+        Students
+      </a>
+
+      <a href="reports.html" class="nav-link active reports-link">
+        <span>📊</span>
+        Reports
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="admin-card">
+
+        <div class="avatar">
+          AD
+        </div>
+
+        <div>
+          <strong>Admin</strong>
+          <small>Administrator</small>
+        </div>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+
+  <main class="main">
+
+
+    <header class="topbar">
+
+      <div>
+
+        <h1>Academic Reports</h1>
+
+        <p>
+          Analyze student performance and attendance.
+        </p>
+
+      </div>
+
+    </header>
+
+
+
+    <section class="stats-grid">
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon blue">
+          📚
+        </div>
+
+        <div>
+
+          <span>Total Students</span>
+
+          <h2 id="reportStudents">
+            0
+          </h2>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon green">
+          📈
+        </div>
+
+        <div>
+
+          <span>Average Score</span>
+
+          <h2 id="reportScore" class="clickable-stat" onclick="showWrongAverageAlert()">
+            0%
+          </h2>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon purple">
+          ✓
+        </div>
+
+        <div>
+
+          <span>Attendance</span>
+
+          <h2 id="reportAttendance">
+            0%
+          </h2>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <section class="content-grid">
+
+
+      <div class="panel">
+
+        <div class="panel-header">
+
+          <div>
+
+            <h3>Performance Overview</h3>
+
+            <p>
+              Student score distribution
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="bar-chart">
+
+          <div class="bar-item">
+
+            <span>90 - 100%</span>
+
+            <div class="bar">
+              <div style="width:75%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="bar-item">
+
+            <span>80 - 89%</span>
+
+            <div class="bar">
+              <div style="width:60%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="bar-item">
+
+            <span>70 - 79%</span>
+
+            <div class="bar">
+              <div style="width:45%"></div>
+            </div>
+
+          </div>
+
+
+          <div class="bar-item">
+
+            <span>Below 70%</span>
+
+            <div class="bar">
+              <div style="width:25%"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="panel">
+
+        <div class="panel-header">
+
+          <div>
+
+            <h3>Quick Insights</h3>
+
+            <p>
+              Current academic status
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="insight">
+
+          <div class="insight-icon">
+            🏆
+          </div>
+
+          <div>
+
+            <strong>
+              Top Performance
+            </strong>
+
+            <p>
+              Most students are performing above 70%.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="insight">
+
+          <div class="insight-icon">
+            📅
+          </div>
+
+          <div>
+
+            <strong>
+              Attendance
+            </strong>
+
+            <p>
+              Overall attendance is being monitored.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

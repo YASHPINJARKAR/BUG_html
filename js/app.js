@@ -568,7 +568,7 @@ function setupStudentForm() {
 
   form.addEventListener(
     "submit",
-    function(event) {
+    function (event) {
 
       event.preventDefault();
 
@@ -728,7 +728,7 @@ function setupMarksForm() {
   const form = document.getElementById("marksForm");
   if (!form) return;
 
-  form.addEventListener("submit", function(event) {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const id = Number(document.getElementById("marksStudentId").value);
@@ -792,7 +792,7 @@ function showWrongAverageAlert() {
   const averageScoreCorrect = Math.round(
     students.reduce((sum, student) => sum + student.score, 0) / students.length
   );
-  
+
   // Buggy average score calculation (e.g. 25% lower than correct value)
   const wrongAverage = Math.round(averageScoreCorrect * 0.75);
 
@@ -807,7 +807,7 @@ function showWrongAverageAlert() {
 function setupReportsLinkBug() {
   const reportsLinks = document.querySelectorAll(".reports-link");
   reportsLinks.forEach(link => {
-    link.addEventListener("click", function(event) {
+    link.addEventListener("click", function (event) {
       event.preventDefault();
       console.warn("Reports navigation blocked by intentional bug.");
     });
@@ -821,7 +821,7 @@ function setupReportsLinkBug() {
 
 document.addEventListener(
   "DOMContentLoaded",
-  function() {
+  function () {
 
     loadDashboard();
 

@@ -804,6 +804,16 @@ function showWrongAverageAlert() {
   );
 }
 
+function setupReportsLinkBug() {
+  const reportsLinks = document.querySelectorAll(".reports-link");
+  reportsLinks.forEach(link => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+      console.warn("Reports navigation blocked by intentional bug.");
+    });
+  });
+}
+
 
 /* -----------------------------------------
    PAGE INITIALIZATION
@@ -822,6 +832,8 @@ document.addEventListener(
     setupMarksForm();
 
     loadReports();
+
+    setupReportsLinkBug();
 
   }
 );
